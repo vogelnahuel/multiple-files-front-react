@@ -15,7 +15,11 @@ export const sendFiles = async (files) => {
         "metadata",'holaaa'
       );
     try {
-        return await axios.post(`http://${host}:${port}/files`, formData);
+        return await axios.post(`http://${host}:${port}/files`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
     } catch (error) {
         console.log('error', error)
     }
